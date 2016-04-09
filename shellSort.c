@@ -1,12 +1,14 @@
 #include <stdio.h>
 
+static int counter=0;
+
 void swap(int *a,int *b){
   int t=*a;
   *a=*b;
   *b=t;
+  counter++;
 }
 
-static int counter=0;
 inline int less(int a,int b){
   counter++;
   return a<b;
@@ -15,7 +17,7 @@ inline int less(int a,int b){
 void sellSort(int a[],int size){
   // Magic increment sequence
   static int incs[]= { 1391376, 463792, 198768, 86961,33936, 13776,
-                        4592, 1968, 861,336, 112, 48, 21, 7, 3, 1 };
+                        4592, 1968, 861,336, 109, 41, 19, 5, 1 };
   int length=sizeof(incs)/sizeof(incs[0]);
   for (int k = 0; k < length; k++){
     int h = incs[k];
