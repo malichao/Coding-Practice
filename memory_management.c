@@ -52,9 +52,51 @@ void test1_2(){
 	printf("Array of pointers freed\n");
 }
 
+//Example of realloc
+//void* realloc (void* ptr, size_t size);
+void test2(){
+	int size=10;
+	int* numbers = NULL;
+	int* more_numbers = NULL;
+
+	more_numbers = (int*) realloc (numbers, size * sizeof(int));
+
+	if (more_numbers!=NULL) {
+		numbers=more_numbers;
+	}
+	else {
+		free (numbers);
+		puts ("Error (re)allocating memory");
+		exit (1);
+	}
+
+	for (int n=0;n<size;n++) 
+		printf ("%d ",numbers[n]);
+	printf("\n");
+
+	free (numbers);
+}
+
+//Example of calloc
+//void* calloc (size_t num, size_t size);
+void test3(){
+	int size=10;
+	int * pData;
+	pData = (int*) calloc (size,sizeof(int));
+	if (pData==NULL) exit (1);
+
+	for (int n=0;n<size;n++) 
+		printf ("%d ",pData[n]);
+	printf("\n");
+
+	free (pData);
+}
+
 int main(int argc, char const *argv[])
 {
 	test1();
 	test1_2();
+	test2();
+	test3();
 	return 0;
 }
