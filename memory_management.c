@@ -11,6 +11,7 @@ void test1(){
 	}
 	for(int i=0;i<10;i++)
 		printf("%d,",p[i]);
+	printf("\n");
 	free(p);
 
 }
@@ -32,8 +33,28 @@ void test1_1(){
 	free(p);
 }
 
+// Example of using malloc and free,applying for array of pointers
+void test1_2(){
+	int size=100;
+	// array of length SIZE, consisting of float pointers
+	float** arr =(float**) malloc(sizeof(float*) * size);
+	printf("Allocated array of pointers\n");
+
+	// allocate the array of 3 floats at each index
+	for (int i = 0; i < size; i++) 
+	    arr[i] =(float*) malloc(sizeof(float) * 5);
+
+	// free the individual arrays
+	for (int i = 0; i < size; i++)
+	    free(arr[i]);
+	// free the array of arrays
+	free(arr);
+	printf("Array of pointers freed\n");
+}
+
 int main(int argc, char const *argv[])
 {
 	test1();
+	test1_2();
 	return 0;
 }
