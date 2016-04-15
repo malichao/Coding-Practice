@@ -12,8 +12,9 @@ void test1(){
 	for(int i=0;i<10;i++)
 		printf("%d,",p[i]);
 	printf("\n");
-	free(p);
 
+	free(p);
+	p=NULL;	//It's better to set the pointer to null
 }
 
 // Example of using malloc and free,failure 
@@ -31,6 +32,7 @@ void test1_1(){
 
 	// This will failed too
 	free(p);
+	p=NULL;	//It's better to set the pointer to null
 }
 
 // Example of using malloc and free,applying for array of pointers
@@ -49,6 +51,7 @@ void test1_2(){
 	    free(arr[i]);
 	// free the array of arrays
 	free(arr);
+	arr=NULL;	//It's better to set the pointer to null
 	printf("Array of pointers freed\n");
 }
 
@@ -75,6 +78,7 @@ void test2(){
 	printf("\n");
 
 	free (numbers);
+	numbers=NULL;	//It's better to set the pointer to null
 }
 
 //Example of calloc
@@ -90,6 +94,7 @@ void test3(){
 	printf("\n");
 
 	free (pData);
+	pData=NULL;	//It's better to set the pointer to null
 }
 
 int main(int argc, char const *argv[])
