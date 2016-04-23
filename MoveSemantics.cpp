@@ -64,5 +64,5 @@ int main(){
 
    MyClass m1=std::move(m);
    std::cout<<"m1= "<<m1.getBuffer()<<'\n';
-   std::cout<<"now m= "<<m.getBuffer()<<'\n';   //Error : Segmentation fault
+   //std::cout<<"now m= "<<m.getBuffer()<<'\n';   //Error : Segmentation fault
 }
