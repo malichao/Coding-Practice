@@ -27,6 +27,9 @@ private:
     A& operator=(const A&);
 };
 
+//The destructor is no longer needed, and value-copying will automatically 
+//be disabled, as unique_ptr is not copyable. On top of that, this unique_ptr 
+//version also gets a move constructor defined automatically
 class B {
 public:
    std::unique_ptr<int> i;
