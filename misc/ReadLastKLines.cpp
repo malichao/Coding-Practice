@@ -31,11 +31,13 @@ void readLastKLines(const string &fileName,const int K){
 		//If the number of lines are more than the real line number then we
 		//only read all the lines
 		lineCount=K > lineCount ? lineCount : K;
-		int start=bufferHead-lineCount;
 
+		int start=bufferHead-lineCount;		//Go back to the start position
+		//If start position is negative,then we offset it since it's a circular
+		//buffer.
+		start= start < 0 ? start+lineCount : start;
 		for(int i=0;i<lineCount;i++){
-			int pos=start+i<0 ?start+i+lineCount : start+i;
-			std::cout<<buffer[pos%lineCount]<<'\n';
+			cout<<buffer[(start+i)%lineCount]<<'\n';
 		}
 		
 
