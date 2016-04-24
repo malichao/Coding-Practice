@@ -1,3 +1,4 @@
+#define READ_LAST_K_LINES_MAIN	/*Comment out this line to disable the main function below*/
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -58,6 +59,9 @@ void generateTestCases(const string &fileName,const int length){
 	}
 }
 
+
+#ifdef READ_LAST_K_LINES_MAIN
+
 int main(){
 	int length=10;
 	int K=10;
@@ -81,3 +85,5 @@ int main(){
 	readLastKLines(fileName,2);
 	readLastKLines(fileName,3);
 }
+
+#endif
