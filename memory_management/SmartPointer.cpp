@@ -15,6 +15,10 @@ Description :
    use:
    SmartPointer<int> smptr(new int(1));
    SmartPointer<int> smptr1(smptr);	//correct!
+
+   Multi-threads safe as the life time of controlled object is determined by 
+   the last usage of a thread. However,a mutex is still needed to solve the 
+   concurrent access problem.
 *****************************************************************************/
 #include <iostream>
 #include <memory>
@@ -61,7 +65,9 @@ public:
 protected:
 	void remove(){
 		--(*ref_count);
-		if(*ref_count<=0){
+		//Don't use *ref_count==0 in case multiple threads access and result in
+		//a negative value.
+		if(*ref_count<=0){	
 			if(ref){
 				delete ref;
 				cout<<"Deleted ref\n";
