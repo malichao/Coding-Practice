@@ -7,7 +7,7 @@ Description :
    A practice of writing my own shared_ptr.
    Rule of thumb when using SmartPointer/shared_ptr:
    Never construct several SmartPointers/shared_ptrs with the same object,
-   instead,take control of the object imediately after allocated on the heap.
+   instead,take control of the object immediately after allocated on the heap.
    i.e.,never use:
    int *test1=new int(1);
    SmartPointer<int> smptr(test1);
@@ -62,13 +62,13 @@ protected:
 	void remove(){
 		--(*ref_count);
 		if(*ref_count<=0){
-			if(ref!=nullptr){
-				cout<<"Delete ref\n";
+			if(ref){
 				delete ref;
+				cout<<"Deleted ref\n";
 			} 
-			if(ref_count!=nullptr){
-				cout<<"Delete ref_count\n";
+			if(ref_count){
 				delete ref_count;
+				cout<<"Deleted ref_count\n";
 			} 
 			ref_count=nullptr;
 			ref=nullptr;
@@ -82,14 +82,10 @@ private:
 };
 
 int main(){
-	int *test1=new int(1);
-	//SmartPointer<int> smptr(test1);
-	//cout<<"smptr= "<<smptr.get()<<endl;
-	//SmartPointer<int> smptr1(test1);
-	//cout<<"smptr1= "<<smptr.get()<<endl;
-
-	std::shared_ptr<int> sptr(test1);
-	cout<<"sptr count = "<<sptr.use_count()<<endl;
-	std::shared_ptr<int> sptr1(test1);
-	cout<<"sptr1 count = "<<sptr1.use_count()<<endl;
+	SmartPointer<int> smptr(new int(1));
+	cout<<"smptr= "<<smptr.get()<<endl;
+	SmartPointer<int> smptr1(smptr);
+	cout<<"smptr1= "<<smptr.get()<<endl;
+	SmartPointer<int> smptr2=smptr;
+	cout<<"smptr2= "<<smptr.get()<<endl;
 }
