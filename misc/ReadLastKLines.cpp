@@ -1,3 +1,15 @@
+/******************************************************************************
+Author		: Lichao Ma
+Date  		: Apr 14,2016
+Version		: v0.1
+Built		: Sublime GCC, -std=c++11
+Description :
+	Read last K lines from a file. Basic solution is to read the files two
+	times,first the number of lines and then locate the last K line and print.
+	However,this can be improved by using a circular buffer of size K. When we
+	reach the end of the file we have the answer in the buffer.
+*****************************************************************************/
+
 #define READ_LAST_K_LINES_MAIN	/*Comment out this line to disable the main function below*/
 #include <iostream>
 #include <fstream>
