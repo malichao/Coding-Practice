@@ -77,7 +77,7 @@ int main(){
 			printf(PRINT_FORMAT,a[i][j]);
 		printf("\n");
 	}
-	free(a);
+	free(a);	//BAD,forget to free the rest of array
 
 
 	printf("Method 2\n");
