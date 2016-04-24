@@ -44,6 +44,7 @@ void readLastKLines(const string &fileName,const int K){
 	}
 }
 
+// Function to generate test cases
 void generateTestCases(const string &fileName,const int length){
 	try{
 		std::ofstream testFile(fileName);
