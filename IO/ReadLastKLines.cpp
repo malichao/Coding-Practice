@@ -1,6 +1,6 @@
 /******************************************************************************
 Author		: Lichao Ma
-Date  		: Apr 14,2016
+Date  		: Apr 24,2016
 Version		: v0.1
 Built		: Sublime GCC, -std=c++11
 Description :
