@@ -1,3 +1,12 @@
+/******************************************************************************
+Author		: Lichao Ma
+Date  		: Apr 24,2016
+Version		: v0.1
+Built		: Sublime GCC, -std=c++11
+Description :
+	A practice of using shared_ptr to build a linkedlist.Then merge two sorted
+	linked list into one.
+*****************************************************************************/
 #include <iostream>
 #include <memory>
 #include <vector>
