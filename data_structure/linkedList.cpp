@@ -27,28 +27,29 @@ template <typename T>
 using node_ptr=std::shared_ptr<Node<T> >;
 
 template<typename T>
-void appendNode(node_ptr<T> &head,node_ptr<T> &tail,node_ptr<T> &n){
-	head ? tail->next = n : head = n;
-	tail = n;
+void appendNode(node_ptr<T> &head,node_ptr<T> &tail,node_ptr<T> &node){
+	//If head exist,append the node to the tail,otherwise let the node be the head
+	head ? tail->next = node : head = node;
+	tail = node;
 }
 
 template<typename T>
-void appendNodeAndAdvance(node_ptr<T> &head,node_ptr<T> &tail,node_ptr<T> &n){
+void appendAndAdvance(node_ptr<T> &head,node_ptr<T> &tail,node_ptr<T> &n){
 	appendNode(head,tail,n);
 	n=n->next;
 }
 
 template<typename T>
-node_ptr<T> mergeSortedLinkedList(node_ptr<T> F,node_ptr<T> L){
+node_ptr<T> mergeSortedLinkedList(node_ptr<T> list1,node_ptr<T> list2){
 	node_ptr<T> sortedHead=nullptr,tail=nullptr;
-	while(F&&L){
-		appendNodeAndAdvance(sortedHead,tail,F->data<L->data?F:L);
+	while(list1&&list2){
+		appendAndAdvance(sortedHead,tail,(list1->data < list2->data)?list1:list2);
 	}
 
-	if(F)
-		appendNode(sortedHead,tail,F);
-	if(L)
-		appendNode(sortedHead,tail,L);
+	if(list1)	//Append the remaining nodes in list1
+		appendNode(sortedHead,tail,list1);
+	if(list2)	//Append the remaining nodes in list2
+		appendNode(sortedHead,tail,list2);
 	return sortedHead;
 }
 
@@ -64,7 +65,7 @@ void generateTestVector(vector<int> &v){
 void generateTestLinkedList(vector<int> &v,node_ptr<int> &n){
 	n->data=v[0];
 	shared_ptr<Node<int> > temp(n);
-	for(int i=1;i<v.size();i++){
+	for(size_t i=1;i<v.size();i++){
 		temp->next=std::make_shared<Node<int> >(v[i]);
 		temp=temp->next;
 	}
@@ -82,7 +83,7 @@ int main(){
 	srand(time(NULL));
 	int size=4;
 	vector<int> v(size);
-	
+
 	node_ptr<int> list1(new Node<int>);
 	generateTestVector(v);
 	generateTestLinkedList(v,list1);
@@ -93,6 +94,5 @@ int main(){
 	generateTestLinkedList(v,list2);
 	printLinkedList(list2);
 
-	mergeSortedLinkedList(list1,list2);
-	printLinkedList(list1);
+	printLinkedList(mergeSortedLinkedList(list1,list2));
 }
