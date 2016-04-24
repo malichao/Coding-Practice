@@ -15,6 +15,8 @@ class Node{
 public:
 	T data;
 	std::shared_ptr<Node<T> > next;
+	Node():next(nullptr){}
+	Node(T& d):data(d),next(nullptr){}
 
 static bool less(const Node<T> &lhs,const Node<T> &rhs){
 	return lhs.data<rhs.data;
@@ -50,35 +52,47 @@ node_ptr<T> mergeSortedLinkedList(node_ptr<T> F,node_ptr<T> L){
 	return sortedHead;
 }
 
+void generateTestVector(vector<int> &v){
+	for(auto &vv:v)
+		vv=rand()%30;
+	sort(v.begin(),v.end());
+	//for(int i=0;i<v.size();i++)
+	//	cout<<v[i]<<" ";
+	//cout<<endl;
+}
+
+void generateTestLinkedList(vector<int> &v,node_ptr<int> &n){
+	n->data=v[0];
+	shared_ptr<Node<int> > temp(n);
+	for(int i=1;i<v.size();i++){
+		temp->next=std::make_shared<Node<int> >(v[i]);
+		temp=temp->next;
+	}
+}
+
+void printLinkedList(node_ptr<int> n){
+	while(n){
+		cout<<n->data<<"\t";
+		n=n->next;
+	}
+	cout<<endl;
+}
+
 int main(){
-
 	srand(time(NULL));
-	// Error! Don't define the data on the stack when using shared_ptr!
-	// Create data on the heap!
-	vector<Node<int> > *nodes1=new vector<Node<int> >(10);
-	vector<Node<int> > *nodes2=new vector<Node<int> >(10);
-	for(size_t i=0;i<(*nodes1).size();i++){
-		(*nodes1)[i].data=rand()%20;
-		(*nodes2)[i].data=rand()%20;
-	}
-	std::sort((*nodes1).begin(),(*nodes1).end(),Node<int>::less);
-	std::sort((*nodes2).begin(),(*nodes2).end(),Node<int>::less);
+	int size=4;
+	vector<int> v(size);
+	
+	node_ptr<int> list1(new Node<int>);
+	generateTestVector(v);
+	generateTestLinkedList(v,list1);
+	printLinkedList(list1);
 
-	Node<int>* ptr1=(*nodes1).data();
-	for(size_t i=0;i<(*nodes1).size()-1;i++){
-		(*nodes1)[i].next=node_ptr<int> (ptr1+i+1);
-		(*nodes2)[i].data=rand()%20;
-	}
+	node_ptr<int> list2(new Node<int>);
+	generateTestVector(v);
+	generateTestLinkedList(v,list2);
+	printLinkedList(list2);
 
-	(*nodes1).back().next=nullptr;
-	(*nodes1).back().next=nullptr;
-
-	node_ptr<int> nodeHead1=node_ptr<int>((*nodes1).data());
-	cout<<"Node List1: ";
-	while(nodeHead1!=nullptr){
-		cout<<nodeHead1->data<<" ";
-		nodeHead1=nodeHead1->next;
-	}
-	cout<<"\nNode List 2:";
-
+	mergeSortedLinkedList(list1,list2);
+	printLinkedList(list1);
 }
