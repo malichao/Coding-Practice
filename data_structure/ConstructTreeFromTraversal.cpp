@@ -1,8 +1,15 @@
+/******************************************************************************
+Author		: Lichao Ma
+Date  		: Apr 27,2016
+Version		: v0.1
+Built		: Sublime GCC, -std=c++11
+Description :
+	Construct a tree from its preorder and inorder traversals using recursive
+	method.
+*****************************************************************************/
 #include <iostream>
 #include <memory>
 #include <vector>
-#include <ctime>
-#include <random>
 #include <algorithm>
 #include <queue>
 
@@ -39,7 +46,7 @@ btree_ptr<T> construct( const vector<T> &pre, const int &pre_s, const int &pre_e
 	return nullptr;
 }
 
-
+//Print out the result
 void printTree(const btree_ptr<char> &tree){
 	if(!tree)
 		return;
