@@ -178,6 +178,7 @@ The grogram is tested with GoogleTest framework and GCov.At the time I built it 
 ##Future Work
 
 Currently the primality test code is a naive method,it works well with numbers smaller than 2^32 but very inefficient with large numbers.To improve the efficiency with large numbers, [BPSW](http://www.trnicely.net/misc/bpsw.html) could be used.It's been proven that it could verify the primality of a number within 2^64(of course it works beyond this range) in a polynomial time.The main steps of this algorithm is as follows.  
+  
 	-Process all N < 3 and all even N.  
 	-Check N for any small prime divisors p < 1000.  
 	-Perform a Miller-Rabin (strong probable prime) test, base 2, on N.  
