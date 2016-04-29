@@ -11,7 +11,7 @@
 #include "gtest/gtest.h"
 
 using namespace fbfp;
-
+/*
 //Testing isPrime function,prime numbers are chosen from The Prime Pages
 // https://primes.utm.edu/lists/small/millions/
 TEST(isPrime,TrueCases){
@@ -119,7 +119,7 @@ TEST(FibonacciBuzzFizzPrime,IllegalCases){
 	EXPECT_ANY_THROW(temp.generate(-1,result));
 	EXPECT_ANY_THROW(temp.generate(INT32_MIN,result));
 }
-/*
+*/
 //Testing overflow cases, fibonacci > UINT32_MAX
 TEST(FibonacciBuzzFizzPrime,OverflowCases){
 	FBFP temp;
@@ -127,11 +127,11 @@ TEST(FibonacciBuzzFizzPrime,OverflowCases){
 	string error="Error, n must >=0!";
 
 	//(9278 ms)
-	EXPECT_NO_THROW(temp.generate(93,result));
-	EXPECT_ANY_THROW(temp.generate(94,result));
-	EXPECT_ANY_THROW(temp.generate(100,result));
+	//EXPECT_NO_THROW(temp.generate(93,result));
+	EXPECT_ANY_THROW(temp.generate(94,result));	//(2984 ms)
+	//EXPECT_ANY_THROW(temp.generate(100,result));
 }
-*/
+
 //Testing n=0,1,2
 TEST(FibonacciBuzzFizzPrime,isBuzz){
 	FBFP temp;

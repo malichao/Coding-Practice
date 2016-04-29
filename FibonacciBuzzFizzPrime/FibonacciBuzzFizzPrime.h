@@ -71,7 +71,7 @@ public:
 			}
 			uint64_t sum = f1.first + f2.first;
 			string s = fbfp::isFizz(sum) ? "Fizz" : "";
-			s = fbfp::isBuzz(sum) ? "Buzz" : s;
+			s = fbfp::isBuzz(sum) ? (!s.empty() ? s + " + Buzz" : "Buzz") : s;
 			s = fbfp::isPrime(sum) ? "FizzBuzz" : (s.empty() ? std::to_string(sum): s);
 			result.emplace_back(sum,s);
 		}
