@@ -7,5 +7,5 @@ A function to solve the following problem.
 	- ... "BuzzFizz" when F(n) is prime.  
 	- ... the value F(n) otherwise.  
 	  
-	  ===
+=====
 	  
