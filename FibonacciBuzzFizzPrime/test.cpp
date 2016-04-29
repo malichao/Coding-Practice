@@ -120,6 +120,17 @@ TEST(FibonacciBuzzFizzPrime,IllegalCases){
 	EXPECT_ANY_THROW(temp.generate(INT32_MIN,result));
 }
 
+//Testing overflow cases, fibonacci > UINT32_MAX
+TEST(FibonacciBuzzFizzPrime,OverflowCases){
+	FBFP temp;
+	std::vector<fbfp::fbfp_pair> result;
+	string error="Error, n must >=0!";
+
+	EXPECT_NO_THROW(temp.generate(93,result));
+	EXPECT_ANY_THROW(temp.generate(94,result));
+	EXPECT_ANY_THROW(temp.generate(100,result));
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

@@ -64,6 +64,10 @@ public:
 		for (int i = 3; i <= n; i++) {
 			f1 = result[i - 1];
 			f2 = result[i - 2];
+			if(f1.first>=(UINT64_MAX/2)||f2.first>=(UINT64_MAX/2)){
+				throw std::overflow_error("Error, result overflow!");
+				return;
+			}
 			uint64_t sum = f1.first + f2.first;
 			string s = fbfp::isFizz(sum) ? "Fizz" : "";
 			s = fbfp::isBuzz(sum) ? "Buzz" : "";
@@ -73,6 +77,4 @@ public:
 	}
 
 };
-
-
 }
