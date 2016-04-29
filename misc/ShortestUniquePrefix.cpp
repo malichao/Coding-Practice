@@ -1,10 +1,15 @@
+/******************************************************************************
+Author		: Lichao Ma
+Date  		: Mar 22,2016
+Version		: v0.1
+Built		: Sublime GCC, -std=c++11
+Description :
+	A practice of using trie to find the shortest unique prefix.
+*****************************************************************************/
 #include <iostream>
 #include <memory>
 #include <vector>
-#include <ctime>
-#include <random>
 #include <algorithm>
-#include <queue>
 #include <unordered_map>
 #include <unordered_set>
 
