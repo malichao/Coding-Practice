@@ -37,28 +37,12 @@ TEST(isPrime,FalseCases){
 	EXPECT_FALSE(isPrime(961751544));
 }
 
-TEST(isFizz,TrueCases){
-	EXPECT_TRUE(isFizz(3));
-	EXPECT_TRUE(isFizz(6));
-	EXPECT_TRUE(isFizz(59049));
-	EXPECT_TRUE(isFizz(205891132094649));
-	EXPECT_TRUE(isFizz(16677181699666569));
-}
-
-TEST(isFizz,FalseCases){
-	EXPECT_FALSE(isFizz(0));
-	EXPECT_FALSE(isFizz(1));
-	EXPECT_FALSE(isFizz(2));
-	EXPECT_FALSE(isFizz(4));
-	EXPECT_FALSE(isFizz(4294967296));
-}
-
 TEST(isBuzz,TrueCases){
-	EXPECT_TRUE(isBuzz(5));
-	EXPECT_TRUE(isBuzz(10));
-	EXPECT_TRUE(isBuzz(1000));
-	EXPECT_TRUE(isBuzz(298023223876953125));
-	EXPECT_TRUE(isBuzz(UINT64_MAX));
+	EXPECT_TRUE(isBuzz(3));
+	EXPECT_TRUE(isBuzz(6));
+	EXPECT_TRUE(isBuzz(59049));
+	EXPECT_TRUE(isBuzz(205891132094649));
+	EXPECT_TRUE(isBuzz(16677181699666569));
 }
 
 TEST(isBuzz,FalseCases){
@@ -66,8 +50,24 @@ TEST(isBuzz,FalseCases){
 	EXPECT_FALSE(isBuzz(1));
 	EXPECT_FALSE(isBuzz(2));
 	EXPECT_FALSE(isBuzz(4));
-	EXPECT_FALSE(isBuzz(UINT32_MAX-1));
-	EXPECT_FALSE(isBuzz(UINT64_MAX-1));
+	EXPECT_FALSE(isBuzz(4294967296));
+}
+
+TEST(isFizz,TrueCases){
+	EXPECT_TRUE(isFizz(5));
+	EXPECT_TRUE(isFizz(10));
+	EXPECT_TRUE(isFizz(1000));
+	EXPECT_TRUE(isFizz(298023223876953125));
+	EXPECT_TRUE(isFizz(UINT64_MAX));
+}
+
+TEST(isFizz,FalseCases){
+	EXPECT_FALSE(isFizz(0));
+	EXPECT_FALSE(isFizz(1));
+	EXPECT_FALSE(isFizz(2));
+	EXPECT_FALSE(isFizz(4));
+	EXPECT_FALSE(isFizz(UINT32_MAX-1));
+	EXPECT_FALSE(isFizz(UINT64_MAX-1));
 }
 
 //Testing n=0,1,2
@@ -133,7 +133,7 @@ TEST(FibonacciBuzzFizzPrime,OverflowCases){
 }
 */
 //Testing n=0,1,2
-TEST(FibonacciBuzzFizzPrime,isFizz){
+TEST(FibonacciBuzzFizzPrime,isBuzz){
 	FBFP temp;
 	std::vector<fbfp::fbfp_pair> result;
 
@@ -153,7 +153,4 @@ TEST(FibonacciBuzzFizzPrime,isFizz){
 
 }
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
-  return RUN_ALL_TESTS();
-}
+

@@ -17,13 +17,13 @@ using std::vector;
 typedef std::pair<uint64_t, string> fbfp_pair;
 
 inline bool isFizz(uint64_t n){
-	if(n<3) return false;
-	return n%3==0;
+	if(n<5) return false;
+	return n%5==0;
 }
 
 inline bool isBuzz(uint64_t n){
-	if(n<5) return false;
-	return n%5==0;
+	if(n<3) return false;
+	return n%3==0;
 }
 
 inline bool isPrime(uint64_t n){
@@ -70,8 +70,8 @@ public:
 			}
 			uint64_t sum = f1.first + f2.first;
 			string s = fbfp::isFizz(sum) ? "Fizz" : "";
-			s = fbfp::isBuzz(sum) ? "Buzz" : "";
-			s = fbfp::isPrime(sum) ? "FizzBuzz" : std::to_string(sum);
+			s = fbfp::isBuzz(sum) ? "Buzz" : s;
+			s = fbfp::isPrime(sum) ? "FizzBuzz" : (s.empty() ? std::to_string(sum): s);
 			result.emplace_back(sum,s);
 		}
 	}
