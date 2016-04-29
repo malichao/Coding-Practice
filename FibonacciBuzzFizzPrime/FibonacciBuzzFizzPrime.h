@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <assert.h>     /* assert */
 
 namespace fbfp{
 
@@ -51,28 +52,46 @@ public:
 			throw std::range_error("Error, n must >=0!");
 			return;
 		}
+		assert(n>=0);
 
 		result.emplace_back(0, "0");	//n=0
 		result.emplace_back(1, "1");	//n=1
 		result.emplace_back(1, "1");	//n=2
-		if(n<3){
+		result.emplace_back(2, "FizzBuzz");	//n=3
+		result.emplace_back(3, "FizzBuzz");	//n=4
+		result.emplace_back(5, "FizzBuzz");	//n=5
+		if(n<=5){
 			result.resize(n+1);
 			return;
 		}
+		assert(n>5);
 
 		fbfp_pair f1, f2;
-		for (int i = 3; i <= n; i++) {
+		for (int i = 6; i <= n; i++) {
 			f1 = result[i - 1];
 			f2 = result[i - 2];
+
+			//Handle overflow first,since sum=f1+f2,so if f1 or f2 is larger than
+			//UINT32_MAX,then there will be an overflow
 			if(f1.first>=(UINT64_MAX/2)||f2.first>=(UINT64_MAX/2)){
 				string s=string("Error, f(") + std::to_string(i) +string(") caused overflow!");
 				throw std::overflow_error(s);
 				return;
 			}
+
 			uint64_t sum = f1.first + f2.first;
+
+			//Check if it's divisible by 3,
 			string s = fbfp::isFizz(sum) ? "Fizz" : "";
+
+			//Check if it's divisible by 5,if it's also divisible by 3 then we
+			//mark it as "Fizz + Buzz"
 			s = fbfp::isBuzz(sum) ? (!s.empty() ? s + " + Buzz" : "Buzz") : s;
-			s = fbfp::isPrime(sum) ? "FizzBuzz" : (s.empty() ? std::to_string(sum): s);
+
+			//Check if it's a prime,we only do this if it's not divisible by 3 or 5
+			//because a number whose is multiple of 3 and 5 is not a prime(excluding 3,5)
+			if(s.empty())
+				s = fbfp::isPrime(sum) ? "FizzBuzz" : std::to_string(sum);
 			result.emplace_back(sum,s);
 		}
 	}
