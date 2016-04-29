@@ -7,6 +7,7 @@
 #include <utility>
 #include <string>
 #include <vector>
+#include <stdexcept>
 
 namespace fbfp{
 
@@ -46,8 +47,10 @@ public:
 	//-range cases	 : fibonacci >=uint64_t
 	//-normal cases	 : n=1,2,3,4,5,...
 	void generate(const int n, vector<fbfp_pair> &result) {
-		if(n<0)
+		if(n<0){
+			throw std::range_error("Error, n must >=0!");
 			return;
+		}
 
 		result.emplace_back(0, "0");	//n=0
 		result.emplace_back(1, "1");	//n=1

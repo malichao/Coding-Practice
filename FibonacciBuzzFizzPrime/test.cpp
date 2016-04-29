@@ -70,9 +70,11 @@ TEST(isBuzz,FalseCases){
 	EXPECT_FALSE(isBuzz(UINT64_MAX-1));
 }
 
-TEST(FibonacciBuzzFizzPrime,TrueCases){
+//Testing n=0,1,2
+TEST(FibonacciBuzzFizzPrime,StartCases){
 	FBFP temp;
 	std::vector<fbfp::fbfp_pair> result;
+
 	temp.generate(0,result);
 	fbfp::fbfp_pair p=result[0];
 	EXPECT_EQ(1,result.size());
@@ -90,6 +92,32 @@ TEST(FibonacciBuzzFizzPrime,TrueCases){
 	p=result[1];
 	EXPECT_EQ(1,p.first);
 	EXPECT_EQ("1",p.second);
+
+	result.clear();
+	temp.generate(2,result);
+	EXPECT_EQ(3,result.size());
+
+	p=result[0];
+	EXPECT_EQ(0,p.first);
+	EXPECT_EQ("0",p.second);
+
+	p=result[1];
+	EXPECT_EQ(1,p.first);
+	EXPECT_EQ("1",p.second);
+
+	p=result[2];
+	EXPECT_EQ(1,p.first);
+	EXPECT_EQ("1",p.second);
+}
+
+//Testing illegal cases n<0;
+TEST(FibonacciBuzzFizzPrime,IllegalCases){
+	FBFP temp;
+	std::vector<fbfp::fbfp_pair> result;
+	string error="Error, n must >=0!";
+
+	EXPECT_ANY_THROW(temp.generate(-1,result));
+	EXPECT_ANY_THROW(temp.generate(INT32_MIN,result));
 }
 
 int main(int argc, char **argv) {
