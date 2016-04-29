@@ -29,7 +29,17 @@ public:
 
 };
 
-bool isPrime(uint64_t n){
+inline bool isFizz(uint64_t n){
+	if(n<3) return false;
+	return n%3==0;
+}
+
+inline bool isBuzz(uint64_t n){
+	if(n<5) return false;
+	return n%5==0;
+}
+
+inline bool isPrime(uint64_t n){
 	if(n<=1)
 		return false;
 	for(uint64_t i=2;i*i<=n;i++){

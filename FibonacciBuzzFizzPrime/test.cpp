@@ -6,6 +6,7 @@
  */
 
 #include <vector>
+#include <stdint.h>
 #include "FibonacciBuzzFizzPrime.h"
 #include "gtest/gtest.h"
 
@@ -13,18 +14,42 @@ using namespace fbfp;
 
 //Testing isPrime function,prime numbers are chosen from The Prime Pages
 // https://primes.utm.edu/lists/small/millions/
-TEST(isPrime,NormalCases){
-	std::vector<uint64_t> primes={2,3,5,7,373,997,98411,961751543};
-	for(uint64_t p:primes)
-		EXPECT_TRUE(isPrime(p));
+TEST(isPrime,TrueCases){
+	EXPECT_TRUE(isPrime(2));
+	EXPECT_TRUE(isPrime(3));
+	EXPECT_TRUE(isPrime(5));
+	EXPECT_TRUE(isPrime(7));
+	EXPECT_TRUE(isPrime(373));
+	EXPECT_TRUE(isPrime(997));
+	EXPECT_TRUE(isPrime(98411));
+	EXPECT_TRUE(isPrime(961751543));
 }
 
 //Testing isPrime function,prime numbers are chosen from The Prime Pages
 // https://primes.utm.edu/lists/small/millions/
 TEST(isPrime,FalseCases){
-	std::vector<uint64_t> numbers={0,1,4,6,8,98412,961751544};
-	for(uint64_t n:numbers)
-		EXPECT_FALSE(isPrime(n));
+	EXPECT_FALSE(isPrime(0));
+	EXPECT_FALSE(isPrime(1));
+	EXPECT_FALSE(isPrime(4));
+	EXPECT_FALSE(isPrime(6));
+	EXPECT_FALSE(isPrime(8));
+	EXPECT_FALSE(isPrime(98412));
+	EXPECT_FALSE(isPrime(961751544));
+}
+
+TEST(isFizz,TrueCases){
+	EXPECT_TRUE(isFizz(3));
+	EXPECT_TRUE(isFizz(6));
+	EXPECT_TRUE(isFizz(59049));
+	EXPECT_TRUE(isFizz(205891132094649));
+	EXPECT_TRUE(isFizz(16677181699666569));
+}
+
+TEST(isFizz,FalseCases){
+	EXPECT_FALSE(isFizz(1));
+	EXPECT_FALSE(isFizz(2));
+	EXPECT_FALSE(isFizz(4));
+	EXPECT_FALSE(isFizz(4294967296));
 }
 
 int main(int argc, char **argv) {
