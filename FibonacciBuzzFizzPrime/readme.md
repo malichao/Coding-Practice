@@ -9,7 +9,7 @@ A program to solve the following problem.
 	  
 ##Solution
 
-The first step will be generating the Fibonacci series,and then check if the number is divisible by 3 or 5,and check if the number is a prime number.Since Fibonacci series grows expoentially, 64bit int data type is used to store the values.To make the program more clear and for easy testing,the results are stored in std::pair:  
+The first step will be generating the Fibonacci series,and then check if the number is divisible by 3 or 5,and check if the number is a prime number.Since Fibonacci series grows exponentially, 64bit int data type is used to store the values.To make the program more clear and for easy testing,the results are stored in std::pair:  
   
 	typedef std::pair<uint64_t, string> fbfp_pair;  
   
@@ -22,12 +22,12 @@ The following cases are consider as error and exceptions will be thrown:
   
 ##Build
 
-The program is built in Eclipse with Cygwin and GCC 5.3.0, and with flag -std=c++0x.If you try to compile the code on Windos with eclipse please configure accordingly.
+The program is built in Eclipse with Cygwin and GCC 5.3.0, and with flag -std=c++0x.If you try to compile the code on Windows with eclipse please configure accordingly.
 
 ##Run
 
-There are two ways to run the program,either calling it without and argument and the program will run with defult number 94,which is the number that causes overflow.Or Calling it with a number as arugument and the program generates the corresponding series.  
-Here is the defult output:  
+There are two ways to run the program,either calling it without any argument and the program will run with default number 94,which is the number that causes overflow.Or Calling it with a number as argument and the program generates the corresponding series.  
+Here is the default output:  
   
 	Generating Fibonacci for n= 94  
 	f(0)	0		0  
@@ -128,7 +128,7 @@ Here is the defult output:
 
 ##Test
 
-The grogram is tested with GoogleTest framework and GCov.At the time I built it passed all the 10 tests and had 100% code coverage.Here is the test result.  
+The program is tested with GoogleTest framework and GCov.At the time I built it passed all the 10 tests and had 100% code coverage.Here is the test result.  
   
 	                                              Code coverage						  
 	FibonacciBuzzFizzPrime.h	40	40	100.0%  
