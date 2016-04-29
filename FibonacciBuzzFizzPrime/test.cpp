@@ -119,16 +119,38 @@ TEST(FibonacciBuzzFizzPrime,IllegalCases){
 	EXPECT_ANY_THROW(temp.generate(-1,result));
 	EXPECT_ANY_THROW(temp.generate(INT32_MIN,result));
 }
-
+/*
 //Testing overflow cases, fibonacci > UINT32_MAX
 TEST(FibonacciBuzzFizzPrime,OverflowCases){
 	FBFP temp;
 	std::vector<fbfp::fbfp_pair> result;
 	string error="Error, n must >=0!";
 
+	//(9278 ms)
 	EXPECT_NO_THROW(temp.generate(93,result));
 	EXPECT_ANY_THROW(temp.generate(94,result));
 	EXPECT_ANY_THROW(temp.generate(100,result));
+}
+*/
+//Testing n=0,1,2
+TEST(FibonacciBuzzFizzPrime,isFizz){
+	FBFP temp;
+	std::vector<fbfp::fbfp_pair> result;
+
+	temp.generate(20,result);
+	fbfp::fbfp_pair p=result[4];
+
+	EXPECT_EQ(3,p.first);
+	EXPECT_EQ("Fizz",p.second);
+
+	p=result[10];
+	EXPECT_EQ(55,p.first);
+	EXPECT_EQ("Fizz",p.second);
+
+	p=result[15];
+	EXPECT_EQ(610,p.first);
+	EXPECT_EQ("Fizz",p.second);
+
 }
 
 int main(int argc, char **argv) {
