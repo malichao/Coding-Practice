@@ -8,7 +8,8 @@ A program to solve the following problem.
 	- ... the value F(n) otherwise.  
 	  
 =====
-##Solution  
+##Solution
+
 The first step will be generating the Fibonacci series,and then check if the number is divisible by 3 or 5,and check if the number is a prime number.Since Fibonacci series grows expoentially, 64bit int data type is used to store the values.To make the program more clear and for easy testing,the results are stored in std::pair:  
   
 	typedef std::pair<uint64_t, string> fbfp_pair;  
@@ -22,14 +23,16 @@ The following cases are consider as error and exceptions will be thrown:
   
 =====
 ##Build
+
 The program is built in Eclipse with Cygwin and GCC 5.3.0, and with flag -std=c++0x.If you try to compile the code on Windos with eclipse please configure accordingly.
 
 =====
 ##Run
+
 There are two ways to run the program,either calling it without and argument and the program will run with defult number 94,which is the number that causes overflow.Or Calling it with a number as arugument and the program generates the corresponding series.  
 Here is the defult output:  
   
-Generating Fibonacci for n= 94  
+	Generating Fibonacci for n= 94  
 	f(0)	0		0  
 	f(1)	1		1  
 	f(2)	1		1  
@@ -126,9 +129,9 @@ Generating Fibonacci for n= 94
 	f(93)	12200160415121876738		12200160415121876738  
 	Error, f(94) caused overflow!  
 
-
 =====
 ##Test
+
 The grogram is tested with GoogleTest framework and GCov.At the time I built it passed all the 10 tests and had 100% code coverage.Here is the test result.  
   
 	                                              Code coverage						  
@@ -178,6 +181,7 @@ The grogram is tested with GoogleTest framework and GCov.At the time I built it 
 
 =====
 ##Future Work
+
 Currently the primality test code is a naive method,it works well with numbers smaller than 2^32 but very inefficient with large numbers.To improve the efficiency with large numbers, [BPSW](http://www.trnicely.net/misc/bpsw.html) could be used.It's been proven that it could verify the primality of a number within 2^64(of course it works beyond this range) in a polynomial time.The main steps of this algorithm is as follows.  
 	-Process all N < 3 and all even N.  
 	-Check N for any small prime divisors p < 1000.  
