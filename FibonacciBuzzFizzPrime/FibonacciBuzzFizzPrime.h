@@ -1,9 +1,17 @@
-/*
- * FibonacciBuzzFizzPrime.cpp
- *
- *  Created on: Apr 28, 2016
- *      Author: Lichao
- */
+/******************************************************************************
+Author		: Lichao Ma
+Date  		: Apr 28,2016
+Version		: v0.1
+Built		: Sublime GCC, -std=c++11
+Description :
+	A function to solve the following problem.
+
+	Generating the first n Fibonacci numbers F(n), printing ...
+	- ... "Buzz" when F(n) is divisible by 3.
+	- ... "Fizz" when F(n) is divisible by 5.
+	- ... "BuzzFizz" when F(n) is prime.
+	- ... the value F(n) otherwise.
+*****************************************************************************/
 #include <utility>
 #include <string>
 #include <vector>
@@ -15,18 +23,22 @@ namespace fbfp{
 using std::string;
 using std::vector;
 
+//Result is stored in pair -- fibonacci number & its regarding string
 typedef std::pair<uint64_t, string> fbfp_pair;
 
+//Check if it's divisible by 5
 inline bool isFizz(uint64_t n){
 	if(n<5) return false;
 	return n%5==0;
 }
 
+//Check if it's divisible by 3
 inline bool isBuzz(uint64_t n){
 	if(n<3) return false;
 	return n%3==0;
 }
 
+//Check if it's a prime number
 inline bool isPrime(uint64_t n){
 	if(n<=1)
 		return false;
@@ -39,8 +51,6 @@ inline bool isPrime(uint64_t n){
 
 class FBFP {
 public:
-
-
 	//generate fibonacci series and its regarding string for n
 	//===Test Cases===
 	//-null cases	 : n=0,result.size()=0
