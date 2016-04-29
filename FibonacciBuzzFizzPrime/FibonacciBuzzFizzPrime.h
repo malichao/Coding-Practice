@@ -65,7 +65,8 @@ public:
 			f1 = result[i - 1];
 			f2 = result[i - 2];
 			if(f1.first>=(UINT64_MAX/2)||f2.first>=(UINT64_MAX/2)){
-				throw std::overflow_error("Error, result overflow!");
+				string s=string("Error, f(") + std::to_string(i) +string(") caused overflow!");
+				throw std::overflow_error(s);
 				return;
 			}
 			uint64_t sum = f1.first + f2.first;
