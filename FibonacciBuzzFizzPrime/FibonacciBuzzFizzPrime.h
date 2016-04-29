@@ -8,9 +8,12 @@
 #include <string>
 #include <vector>
 
+namespace fbfp{
+
 using std::string;
 using std::vector;
-class FBFP{
+
+class FibonacciBuzzFizzPrime{
 public:
 	typedef std::pair<uint64_t,string> fbfp_pair;
 
@@ -26,3 +29,13 @@ public:
 
 };
 
+bool isPrime(uint64_t n){
+	if(n<=1)
+		return false;
+	for(uint64_t i=2;i*i<n;i++){
+		if(n%i==0)
+			return false;
+	}
+	return true;
+}
+}
