@@ -46,10 +46,28 @@ TEST(isFizz,TrueCases){
 }
 
 TEST(isFizz,FalseCases){
+	EXPECT_FALSE(isFizz(0));
 	EXPECT_FALSE(isFizz(1));
 	EXPECT_FALSE(isFizz(2));
 	EXPECT_FALSE(isFizz(4));
 	EXPECT_FALSE(isFizz(4294967296));
+}
+
+TEST(isBuzz,TrueCases){
+	EXPECT_TRUE(isBuzz(5));
+	EXPECT_TRUE(isBuzz(10));
+	EXPECT_TRUE(isBuzz(1000));
+	EXPECT_TRUE(isBuzz(298023223876953125));
+	EXPECT_TRUE(isBuzz(UINT64_MAX));
+}
+
+TEST(isBuzz,FalseCases){
+	EXPECT_FALSE(isBuzz(0));
+	EXPECT_FALSE(isBuzz(1));
+	EXPECT_FALSE(isBuzz(2));
+	EXPECT_FALSE(isBuzz(4));
+	EXPECT_FALSE(isBuzz(UINT32_MAX-1));
+	EXPECT_FALSE(isBuzz(UINT64_MAX-1));
 }
 
 int main(int argc, char **argv) {
