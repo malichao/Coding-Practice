@@ -70,6 +70,28 @@ TEST(isBuzz,FalseCases){
 	EXPECT_FALSE(isBuzz(UINT64_MAX-1));
 }
 
+TEST(FibonacciBuzzFizzPrime,TrueCases){
+	FBFP temp;
+	std::vector<fbfp::fbfp_pair> result;
+	temp.generate(0,result);
+	fbfp::fbfp_pair p=result[0];
+	EXPECT_EQ(1,result.size());
+	EXPECT_EQ(0,p.first);
+	EXPECT_EQ("0",p.second);
+
+	result.clear();
+	temp.generate(1,result);
+	EXPECT_EQ(2,result.size());
+
+	p=result[0];
+	EXPECT_EQ(0,p.first);
+	EXPECT_EQ("0",p.second);
+
+	p=result[1];
+	EXPECT_EQ(1,p.first);
+	EXPECT_EQ("1",p.second);
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
