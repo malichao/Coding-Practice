@@ -7,7 +7,6 @@ A program to solve the following problem.
 	- ... "BuzzFizz" when F(n) is prime.  
 	- ... the value F(n) otherwise.  
 	  
-=====
 ##Solution
 
 The first step will be generating the Fibonacci series,and then check if the number is divisible by 3 or 5,and check if the number is a prime number.Since Fibonacci series grows expoentially, 64bit int data type is used to store the values.To make the program more clear and for easy testing,the results are stored in std::pair:  
@@ -21,12 +20,10 @@ The following cases are consider as error and exceptions will be thrown:
 	-when n<0  
 	-when n is large that causes overflow  
   
-=====
 ##Build
 
 The program is built in Eclipse with Cygwin and GCC 5.3.0, and with flag -std=c++0x.If you try to compile the code on Windos with eclipse please configure accordingly.
 
-=====
 ##Run
 
 There are two ways to run the program,either calling it without and argument and the program will run with defult number 94,which is the number that causes overflow.Or Calling it with a number as arugument and the program generates the corresponding series.  
@@ -129,7 +126,6 @@ Here is the defult output:
 	f(93)	12200160415121876738		12200160415121876738  
 	Error, f(94) caused overflow!  
 
-=====
 ##Test
 
 The grogram is tested with GoogleTest framework and GCov.At the time I built it passed all the 10 tests and had 100% code coverage.Here is the test result.  
@@ -179,7 +175,6 @@ The grogram is tested with GoogleTest framework and GCov.At the time I built it 
 	[==========] 10 tests from 4 test cases ran. (10637 ms total)  
 	[  PASSED  ] 10 tests.  
 
-=====
 ##Future Work
 
 Currently the primality test code is a naive method,it works well with numbers smaller than 2^32 but very inefficient with large numbers.To improve the efficiency with large numbers, [BPSW](http://www.trnicely.net/misc/bpsw.html) could be used.It's been proven that it could verify the primality of a number within 2^64(of course it works beyond this range) in a polynomial time.The main steps of this algorithm is as follows.  
