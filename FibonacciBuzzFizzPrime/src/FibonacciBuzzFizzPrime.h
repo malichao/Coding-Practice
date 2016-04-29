@@ -2,9 +2,9 @@
 Author		: Lichao Ma
 Date  		: Apr 28,2016
 Version		: v0.1
-Built		: Sublime GCC, -std=c++11
+Built		: Cygwin, GCC 5.3.0, -std=c++11
 Description :
-	A function to solve the following problem.
+	A program to solve the following problem.
 
 	Generating the first n Fibonacci numbers F(n), printing ...
 	- ... "Buzz" when F(n) is divisible by 3.

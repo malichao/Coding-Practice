@@ -1,0 +1,44 @@
+                                     Code coverage						
+FibonacciBuzzFizzPrime.h	   40	40	100.0%
+fbfp::FBFP::generate()		   27	27	100.0%
+fbfp::isBuzz(unsigned long)		3	3	100.0%
+fbfp::isFizz(unsigned long)		3	3	100.0%
+fbfp::isPrime(unsigned long)	7	7	100.0%
+
+[==========] Running 10 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from isPrime
+[ RUN      ] isPrime.TrueCases
+[       OK ] isPrime.TrueCases (0 ms)
+[ RUN      ] isPrime.FalseCases
+[       OK ] isPrime.FalseCases (0 ms)
+[----------] 2 tests from isPrime (0 ms total)
+
+[----------] 2 tests from isBuzz
+[ RUN      ] isBuzz.TrueCases
+[       OK ] isBuzz.TrueCases (0 ms)
+[ RUN      ] isBuzz.FalseCases
+[       OK ] isBuzz.FalseCases (0 ms)
+[----------] 2 tests from isBuzz (0 ms total)
+
+[----------] 2 tests from isFizz
+[ RUN      ] isFizz.TrueCases
+[       OK ] isFizz.TrueCases (0 ms)
+[ RUN      ] isFizz.FalseCases
+[       OK ] isFizz.FalseCases (0 ms)
+[----------] 2 tests from isFizz (0 ms total)
+
+[----------] 4 tests from FibonacciBuzzFizzPrime
+[ RUN      ] FibonacciBuzzFizzPrime.StartCases
+[       OK ] FibonacciBuzzFizzPrime.StartCases (0 ms)
+[ RUN      ] FibonacciBuzzFizzPrime.IllegalCases
+[       OK ] FibonacciBuzzFizzPrime.IllegalCases (1 ms)
+[ RUN      ] FibonacciBuzzFizzPrime.OverflowCases
+[       OK ] FibonacciBuzzFizzPrime.OverflowCases (10636 ms)
+[ RUN      ] FibonacciBuzzFizzPrime.NormalCases
+[       OK ] FibonacciBuzzFizzPrime.NormalCases (0 ms)
+[----------] 4 tests from FibonacciBuzzFizzPrime (10637 ms total)
+
+[----------] Global test environment tear-down
+[==========] 10 tests from 4 test cases ran. (10637 ms total)
+[  PASSED  ] 10 tests.

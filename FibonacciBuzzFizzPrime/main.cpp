@@ -13,7 +13,7 @@ Description :
 
 #ifdef TEST_ENABLE
 
-#include "test.h"
+#include "test/test.h"
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
 #else
 
 #include <iostream>
-#include "FibonacciBuzzFizzPrime.h"
+#include "src/FibonacciBuzzFizzPrime.h"
 using namespace fbfp;
 
 
