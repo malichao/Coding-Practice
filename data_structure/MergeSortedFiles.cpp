@@ -10,6 +10,7 @@ Description :
 	files it takes O(NlogK).
 *****************************************************************************/
 #include <iostream>
+#include <memory>
 #include <vector>
 #include <algorithm>
 #include <queue>
@@ -35,15 +36,16 @@ public:
 };
 
 template<typename T>
-vector<T> merge_arrays(const vector<vector<T>> &s) {
+vector<T> merge_arrays(const vector<vector<T>> &files) {
+	//Priority queue in STL is implemented as heap so we use it
 	priority_queue<heap_type<T>, vector<heap_type<T>>, Compare <T>> minHeap;
-	vector<size_t> sIndex(s.size(), 0);
+	vector<size_t> fileIndex(files.size(), 0);
 
 	//Every array in s puts its smallest element in heap
-	for (size_t i = 0; i < s.size(); i++) {
-		if (s[i].size() > 0) {
-			minHeap.emplace(s[i][0], i);
-			sIndex[i] = 1;
+	for (size_t i = 0; i < files.size(); i++) {
+		if (files[i].size() > 0) {
+			minHeap.emplace(files[i][0], i);
+			fileIndex[i] = 1;
 		}
 	}
 
@@ -52,8 +54,8 @@ vector<T> merge_arrays(const vector<vector<T>> &s) {
 		pair<T, int> p = minHeap.top();
 		ret.emplace_back(p.first);
 		//Add the smallest element into heap if possible
-		if (sIndex[p.second] < s[p.second].size()) {
-			minHeap.emplace(s[p.second][sIndex[p.second]++], p.second);
+		if (fileIndex[p.second] < files[p.second].size()) {
+			minHeap.emplace(files[p.second][fileIndex[p.second]++], p.second);
 		}
 		minHeap.pop();
 	}
