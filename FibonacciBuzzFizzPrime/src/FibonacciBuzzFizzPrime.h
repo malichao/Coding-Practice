@@ -28,13 +28,13 @@ typedef std::pair<uint64_t, string> fbfp_pair;
 
 //Check if it's divisible by 5
 inline bool isFizz(uint64_t n){
-	if(n<5) return false;
+	if(n>0&&n<5) return false;
 	return n%5==0;
 }
 
 //Check if it's divisible by 3
 inline bool isBuzz(uint64_t n){
-	if(n<3) return false;
+	if(n==1||n==2) return false;
 	return n%3==0;
 }
 
@@ -64,12 +64,12 @@ public:
 		}
 		assert(n>=0);
 
-		result.emplace_back(0, "0");	//n=0
-		result.emplace_back(1, "1");	//n=1
-		result.emplace_back(1, "1");	//n=2
-		result.emplace_back(2, "FizzBuzz");	//n=3
-		result.emplace_back(3, "FizzBuzz");	//n=4
-		result.emplace_back(5, "FizzBuzz");	//n=5
+		result.emplace_back(0, "Fizz + Buzz");	//n=0
+		result.emplace_back(1, "1");			//n=1
+		result.emplace_back(1, "1");			//n=2
+		result.emplace_back(2, "FizzBuzz");		//n=3
+		result.emplace_back(3, "FizzBuzz");		//n=4
+		result.emplace_back(5, "FizzBuzz");		//n=5
 		if(n<=5){
 			result.resize(n+1);
 			return;
