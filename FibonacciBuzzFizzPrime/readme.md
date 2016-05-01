@@ -30,7 +30,7 @@ There are two ways to run the program,either calling it without any argument and
 Here is the default output:  
   
 	Generating Fibonacci for n= 94  
-	f(0)	0		0  
+	f(0)	0		Fizz + Buzz  
 	f(1)	1		1  
 	f(2)	1		1  
 	f(3)	2		FizzBuzz  
