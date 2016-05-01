@@ -1,6 +1,6 @@
 /******************************************************************************
 Author		: Lichao Ma
-Date  		: Apr 30,2016
+Date  		: May 1,2016
 Version		: v0.1
 Built		: GCC 5.3.0, -std=c++11
 Description :

@@ -13,11 +13,7 @@ Description :
 #include <fstream>
 #include <sstream>
 #include <string>
-
 #include <vector>
-#include <queue>
-#include <array>
-#include <unordered_map>
 
 #include <utility>
 #include <algorithm>
@@ -27,7 +23,6 @@ Description :
 using std::cout;
 using std::endl;
 using std::vector;
-using std::priority_queue;
 using std::string;
 
 template<typename T>
